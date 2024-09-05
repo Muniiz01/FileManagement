@@ -48,6 +48,7 @@
             // 
             // minimize
             // 
+            this.minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimize.BackColor = System.Drawing.Color.Transparent;
             this.minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimize.Image = global::FileManagement.Properties.Resources.icons8_subtração_16;
@@ -56,9 +57,11 @@
             this.minimize.Size = new System.Drawing.Size(30, 31);
             this.minimize.TabIndex = 0;
             this.minimize.UseVisualStyleBackColor = false;
+            this.minimize.Click += new System.EventHandler(this.minimize_Click);
             // 
             // maximize
             // 
+            this.maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.maximize.BackColor = System.Drawing.Color.Transparent;
             this.maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maximize.Image = global::FileManagement.Properties.Resources.icons8_janela_16;
@@ -67,9 +70,11 @@
             this.maximize.Size = new System.Drawing.Size(30, 31);
             this.maximize.TabIndex = 0;
             this.maximize.UseVisualStyleBackColor = false;
+            this.maximize.Click += new System.EventHandler(this.maximize_Click);
             // 
             // exit
             // 
+            this.exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exit.BackColor = System.Drawing.Color.Transparent;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.Image = global::FileManagement.Properties.Resources.icons8_excluir_16;
@@ -78,6 +83,7 @@
             this.exit.Size = new System.Drawing.Size(30, 31);
             this.exit.TabIndex = 0;
             this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // Form1
             // 
@@ -89,6 +95,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
