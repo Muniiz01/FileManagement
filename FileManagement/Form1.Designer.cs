@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelTitleBar = new System.Windows.Forms.Panel();
             this.minimize = new System.Windows.Forms.Button();
             this.maximize = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.panelTitleBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelTitleBar
             // 
-            this.panel1.Controls.Add(this.minimize);
-            this.panel1.Controls.Add(this.maximize);
-            this.panel1.Controls.Add(this.exit);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1419, 46);
-            this.panel1.TabIndex = 0;
+            this.panelTitleBar.Controls.Add(this.minimize);
+            this.panelTitleBar.Controls.Add(this.maximize);
+            this.panelTitleBar.Controls.Add(this.exit);
+            this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
+            this.panelTitleBar.Name = "panelTitleBar";
+            this.panelTitleBar.Size = new System.Drawing.Size(1419, 46);
+            this.panelTitleBar.TabIndex = 0;
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+            this.panelTitleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseMove);
+            this.panelTitleBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseUp);
             // 
             // minimize
             // 
@@ -92,20 +95,20 @@
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1419, 670);
             this.ControlBox = false;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelTitleBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.panelTitleBar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelTitleBar;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Button minimize;
         private System.Windows.Forms.Button maximize;
