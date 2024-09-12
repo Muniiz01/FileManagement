@@ -24,7 +24,9 @@ namespace FileManagement
         public Form1()
         {
             InitializeComponent();
-           
+            exit.MouseEnter += exit_MouseEnter;
+            exit.MouseLeave += exit_MouseLeave;
+
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
@@ -98,6 +100,16 @@ namespace FileManagement
         private void minimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void exit_MouseEnter(object sender, EventArgs e)
+        {
+            exit.BackColor = Color.Red;
+        }
+
+        private void exit_MouseLeave(object sender, EventArgs e)
+        {
+            exit.BackColor = Color.Transparent;
         }
     }
 }
