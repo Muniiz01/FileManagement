@@ -15,75 +15,75 @@ namespace FileManagement
     public partial class Form1 : Form
     {
         //Variables
-        private Size originalSize;
-        private Point originalLocation;
-        private Point lastLocation;
-        private bool mouseDown;
-
-
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
-    int nLeftRect,      // x-coordinate of upper-left corner
-    int nTopRect,       // y-coordinate of upper-left corner
-    int nRightRect,     // x-coordinate of lower-right corner
-    int nBottomRect,    // y-coordinate of lower-right corner
-    int nWidthEllipse,  // width of ellipse
-    int nHeightEllipse  // height of ellipse
-);
+        
+        private bool isDragging = false;
+        private Point cursorRelativeToForm;
+        private Size previousSize;
+        private Point previousLocation;
 
         public Form1()
         {
             InitializeComponent();
-            originalSize = this.Size;
-            this.Resize += Form1_Resize;
-            int cornerRadius = 20;
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, cornerRadius, cornerRadius));
+           
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
-            mouseDown = true;
-            lastLocation = e.Location;   
+            if (e.Button == MouseButtons.Left) 
+            {
+                isDragging = true;
+
+                cursorRelativeToForm = new Point(e.X, e.Y);
+
+                Console.WriteLine(cursorRelativeToForm);
+
+                previousSize = this.Size;
+                previousLocation = this.Location;
+
+            }
             
         }
 
         private void panelTitleBar_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDown)
-                
+
+            if (isDragging)
             {
-                
-                this.Location = new Point(
-                   (this.Location.X - lastLocation.X)+ e.X,(this.Location.Y - lastLocation.Y)+ e.Y);
-                this.Update();
-               
-                
-               
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    // if (cursorRelativeToForm.X >= 1200) { cursorRelativeToForm.X -= 700; }
+
+                    switch (cursorRelativeToForm.X)
+                    {
+                        case int v when (v >= 1700): 
+                            cursorRelativeToForm.X -= 700;
+                            break;
+                        case int v when (v >= 1200):
+                            cursorRelativeToForm.X -= 600;
+                            break;
+                        case int v when (v <= 1200):
+                            cursorRelativeToForm.X -= 400;
+                            break;
+
+                    }
+
+                    this.WindowState = FormWindowState.Normal;
+
+                    Point newCursorPos = this.PointToScreen(cursorRelativeToForm);
+                    Cursor.Position = newCursorPos;
+                }
+
+                this.Location = new Point(Cursor.Position.X - cursorRelativeToForm.X, Cursor.Position.Y - cursorRelativeToForm.Y);
             }
-           
 
         }
 
         private void panelTitleBar_MouseUp(object sender, MouseEventArgs e)
         {
-            mouseDown=false;
+            isDragging = false;
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
-        {
-            int cornerRadius = 0;
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, cornerRadius, cornerRadius));
-
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-                this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-                this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-            }
-        }
-
-        
-
+       
         private void exit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -91,18 +91,8 @@ namespace FileManagement
 
         private void maximize_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                originalLocation = this.Location;
-                WindowState = FormWindowState.Maximized;
-            }
-            else 
-            {
-                this.Size = originalSize;
-                
-                this.Location = originalLocation;
-            } 
         }
 
         private void minimize_Click(object sender, EventArgs e)
