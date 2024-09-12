@@ -43,7 +43,7 @@
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(1236, 45);
+            this.panelTitleBar.Size = new System.Drawing.Size(1304, 45);
             this.panelTitleBar.TabIndex = 0;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             this.panelTitleBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseMove);
@@ -56,7 +56,7 @@
             this.minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimize.Image = global::FileManagement.Properties.Resources.icons8_subtração_16;
             this.minimize.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.minimize.Location = new System.Drawing.Point(1149, 1);
+            this.minimize.Location = new System.Drawing.Point(1217, 1);
             this.minimize.Name = "minimize";
             this.minimize.Size = new System.Drawing.Size(30, 31);
             this.minimize.TabIndex = 0;
@@ -69,7 +69,7 @@
             this.maximize.BackColor = System.Drawing.Color.Transparent;
             this.maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maximize.Image = global::FileManagement.Properties.Resources.icons8_janela_16;
-            this.maximize.Location = new System.Drawing.Point(1177, 1);
+            this.maximize.Location = new System.Drawing.Point(1245, 1);
             this.maximize.Name = "maximize";
             this.maximize.Size = new System.Drawing.Size(30, 31);
             this.maximize.TabIndex = 0;
@@ -82,7 +82,7 @@
             this.exit.BackColor = System.Drawing.Color.Transparent;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.Image = global::FileManagement.Properties.Resources.icons8_excluir_16;
-            this.exit.Location = new System.Drawing.Point(1205, 1);
+            this.exit.Location = new System.Drawing.Point(1273, 1);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(30, 31);
             this.exit.TabIndex = 0;
@@ -94,7 +94,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(1236, 670);
+            this.ClientSize = new System.Drawing.Size(1304, 670);
             this.ControlBox = false;
             this.Controls.Add(this.panelTitleBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
